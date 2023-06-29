@@ -1,0 +1,18 @@
+.profile-div{
+    float: left;
+    display: flex;
+    flex-flow: column;
+    height: 90%;
+    width: 15%;
+    margin: 2rem;
+}
+
+.profile-avatar {
+    width: 80%;
+    height: auto;
+    align-self: center;
+}
+
+.mat-mdc-card{
+    height: inherit;
+}

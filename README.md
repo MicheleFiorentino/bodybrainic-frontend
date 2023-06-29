@@ -1,3 +1,11 @@
+# Initialization
+
+This project uses angular material and chartJS. T:
+- ng add @angular/material
+- npm install chart.js
+
+-------------------------------------------------------------
+
 # BodybrainicFrontend
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.7.
