@@ -1,3 +1,34 @@
-.app-charts{
-    width: 70%;
-};
+.column {
+    float: left;
+    padding: 10px;
+    margin:10px;
+  }
+  
+  .outerleft{
+    width: 20%;
+    height: 100vh;
+  }
+
+  .outerright {
+    width: 100%;
+  }
+
+
+  .innerleft{
+    width: 40%;
+  }
+
+  .innerright{
+    width: 40%;
+  }
+  
+  /* Clear floats after the columns */
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+  .matchart{
+    margin: 10px;
+  }

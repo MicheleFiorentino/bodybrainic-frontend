@@ -22,7 +22,8 @@ import { ProfileComponent } from './components/widgets/profile/profile.component
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialDesignModule
+    MaterialDesignModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]

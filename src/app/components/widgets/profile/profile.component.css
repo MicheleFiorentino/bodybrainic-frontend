@@ -3,8 +3,7 @@
     display: flex;
     flex-flow: column;
     height: 90%;
-    width: 15%;
-    margin: 2rem;
+    width: 100%;
 }
 
 .profile-avatar {

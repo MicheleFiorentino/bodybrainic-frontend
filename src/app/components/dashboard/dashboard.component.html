@@ -1,5 +1,15 @@
-<app-profile></app-profile>
-<div class="app-charts">
-    <app-bwchart [chartTitle]="chartTitle" [chartData]="chartData"></app-bwchart>
-    <app-bwchart [chartTitle]="chartTitle" [chartData]="chartData"></app-bwchart>
+<div class="row">
+    <div class="column outerleft">
+        <app-profile></app-profile>
+    </div>
+    <mat-card class="matchart">
+        <div class="column outerright">
+            <div class="column innerleft">
+                <app-bwchart [chartTitle]="chartTitle[0]" [chartData]="chartData"></app-bwchart><br>
+            </div>
+            <div class="column innerright">
+                <app-bwchart [chartTitle]="chartTitle[1]" [chartData]="chartData"></app-bwchart>
+            </div>
+        </div>
+    </mat-card>
 </div>
