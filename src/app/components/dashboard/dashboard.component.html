@@ -3,13 +3,26 @@
         <app-profile></app-profile>
     </div>
     <mat-card class="matchart">
-        <div class="column outerright">
+        <mat-card-header>
+          <mat-card-title>EEG</mat-card-title>
+          <mat-card-subtitle>{{subtitleEEG}}</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <div class="column outerright">
             <div class="column innerleft">
-                <app-bwchart [chartTitle]="chartTitle[0]" [chartData]="chartData"></app-bwchart><br>
+                <app-bwchart [chartTitle]="chartTitleActive" [chartData]="chartDataActive"></app-bwchart><br>
             </div>
             <div class="column innerright">
-                <app-bwchart [chartTitle]="chartTitle[1]" [chartData]="chartData"></app-bwchart>
+                <app-bwchart [chartTitle]="chartTitleRest" [chartData]="chartDataRest"></app-bwchart>
             </div>
-        </div>
+          </div>
+        </mat-card-content>
+        <mat-card-actions>
+          <button mat-stroked-button color="primary" (click)="onUpdateEEG(BrainWaves.ALPHA)">ALPHA</button>
+          <button mat-stroked-button color="primary" (click)="onUpdateEEG(BrainWaves.BETA)">BETA</button>
+          <button mat-stroked-button color="primary" (click)="onUpdateEEG(BrainWaves.GAMMA)">GAMMA</button>
+          <button mat-stroked-button color="primary" (click)="onUpdateEEG(BrainWaves.THETA)">THETA</button>
+          <button mat-stroked-button color="primary" (click)="onUpdateEEG(BrainWaves.DELTA)">DELTA</button>
+        </mat-card-actions>
     </mat-card>
 </div>

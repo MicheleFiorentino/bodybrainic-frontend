@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, OnChanges, ElementRef, Input, SimpleChanges } from '@angular/core';
 import { Chart } from 'chart.js/auto';
 
 @Component({
@@ -6,16 +6,22 @@ import { Chart } from 'chart.js/auto';
   templateUrl: './bwchart.component.html',
   styleUrls: ['./bwchart.component.css']
 })
-export class BwchartComponent implements OnInit{
+export class BwchartComponent implements OnInit, OnChanges{
 
   @ViewChild('chartCanvas', { static: true }) chartCanvas!: ElementRef;
-  @Input() chartTitle: string = 'Alpha Waves';
+  @Input() chartTitle?: string;
   @Input() chartData: number[] = [];
 
   public brainWavesChart?: Chart;
 
   ngOnInit(): void {
     this.renderBWChart();
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['chartData']) {
+      this.updateChart();
+    }
   }
 
   renderBWChart(){
@@ -69,4 +75,12 @@ export class BwchartComponent implements OnInit{
       }
     })
   }
+
+  updateChart(){
+    if( !(this.brainWavesChart == null) ){
+      this.brainWavesChart!.data.datasets[0].data = this.chartData;
+      this.brainWavesChart?.update();
+    }
+  }
+
 }

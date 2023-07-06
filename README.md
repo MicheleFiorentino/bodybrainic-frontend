@@ -1,7 +1,8 @@
 # Initialization
 
-This project uses angular material and chartJS. T:
-- ng add @angular/material
+This project uses angular material and chartJS. To work properly, add:
+- npm install
+- ng add @angular/material (custom theme)
 - npm install chart.js
 
 -------------------------------------------------------------
