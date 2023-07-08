@@ -18,11 +18,11 @@
           </div>
         </mat-card-content>
         <mat-card-actions>
+          <button mat-stroked-button color="primary" (click)="onUpdateEEG(BrainWaves.DELTA)">DELTA</button>
+          <button mat-stroked-button color="primary" (click)="onUpdateEEG(BrainWaves.THETA)">THETA</button>
           <button mat-stroked-button color="primary" (click)="onUpdateEEG(BrainWaves.ALPHA)">ALPHA</button>
           <button mat-stroked-button color="primary" (click)="onUpdateEEG(BrainWaves.BETA)">BETA</button>
           <button mat-stroked-button color="primary" (click)="onUpdateEEG(BrainWaves.GAMMA)">GAMMA</button>
-          <button mat-stroked-button color="primary" (click)="onUpdateEEG(BrainWaves.THETA)">THETA</button>
-          <button mat-stroked-button color="primary" (click)="onUpdateEEG(BrainWaves.DELTA)">DELTA</button>
         </mat-card-actions>
     </mat-card>
 </div>
