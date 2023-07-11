@@ -24,5 +24,11 @@
           <button mat-stroked-button color="primary" (click)="onUpdateEEG(BrainWaves.BETA)">BETA</button>
           <button mat-stroked-button color="primary" (click)="onUpdateEEG(BrainWaves.GAMMA)">GAMMA</button>
         </mat-card-actions>
+        <mat-card-actions>
+          <mat-chip-listbox aria-label="Electrode selection">
+            <mat-chip-option (click)="toggleElectrode()">F3</mat-chip-option>
+            <mat-chip-option>FC5</mat-chip-option>
+          </mat-chip-listbox>
+        </mat-card-actions>
     </mat-card>
 </div>

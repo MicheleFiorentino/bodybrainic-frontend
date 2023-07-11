@@ -36,96 +36,99 @@ export class BwchartComponent implements OnInit, OnChanges{
           {
             label: 'F3',
             data: this.chartData[0],
-            borderWidth: 1,
+            borderWidth: 0.5,
             pointRadius: 0
           },
           {
             label: 'FC5',
             data: this.chartData[1],
-            borderWidth: 1,
+            borderWidth: 0.5,
             pointRadius: 0
           },
           {
             label: 'AF3',
             data: this.chartData[2],
-            borderWidth: 1,
+            borderWidth: 0.5,
             pointRadius: 0
           },
           {
             label: 'F7',
             data: this.chartData[3],
-            borderWidth: 1,
+            borderWidth: 0.5,
             pointRadius: 0
           },
           {
             label: 'T7',
             data: this.chartData[4],
-            borderWidth: 1,
+            borderWidth: 0.5,
             pointRadius: 0
           },
           {
             label: 'P7',
             data: this.chartData[5],
-            borderWidth: 1,
+            borderWidth: 0.5,
             pointRadius: 0
           },
           {
             label: 'O1',
             data: this.chartData[6],
-            borderWidth: 1,
+            borderWidth: 0.5,
             pointRadius: 0
           },
           {
             label: 'O2',
             data: this.chartData[7],
-            borderWidth: 1,
+            borderWidth: 0.5,
             pointRadius: 0
           },
           {
             label: 'P8',
             data: this.chartData[8],
-            borderWidth: 1,
+            borderWidth: 0.5,
             pointRadius: 0
           },
           {
             label: 'T8',
             data: this.chartData[9],
-            borderWidth: 1,
+            borderWidth: 0.5,
             pointRadius: 0
           },
           {
             label: 'F8',
             data: this.chartData[10],
-            borderWidth: 1,
+            borderWidth: 0.5,
             pointRadius: 0
           },
           {
             label: 'AF4',
             data: this.chartData[11],
-            borderWidth: 1,
+            borderWidth: 0.5,
             pointRadius: 0
           },
           {
             label: 'FC6',
             data: this.chartData[12],
-            borderWidth: 1,
+            borderWidth: 0.5,
             pointRadius: 0
           },
           {
             label: 'F4',
             data: this.chartData[13],
-            borderWidth: 1,
+            borderWidth: 0.5,
             pointRadius: 0
           }
         ]
       },
       options: {
-        responsive: true,
+        responsive: false,
         interaction: {
           mode: 'index',
           intersect: false,
         },
         plugins: {
+          legend:{
+            display:false,
+          },
           title: {
             display: true,
             text: this.chartTitle
@@ -133,7 +136,7 @@ export class BwchartComponent implements OnInit, OnChanges{
         },
         scales: {
           x : {
-            display: true,
+            display: false,
             title: {
               display: true,
               text: 'Time (8s)'
