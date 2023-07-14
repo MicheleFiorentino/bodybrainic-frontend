@@ -2,6 +2,7 @@ import { Component, ViewChild, OnInit} from '@angular/core';
 import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
 import { BrainWaves } from '../widgets/bwchart/utils/brainwaves.enum';
 import { extractActiveEEGData, extractRestEEGData } from '../widgets/bwchart/utils/bwchart.helper';
+import { BWElectrodeArray } from '../widgets/bwchart/utils/bwelectrode-array';
 
 @Component({
   selector: 'app-dashboard',
@@ -12,9 +13,10 @@ export class DashboardComponent implements OnInit {
   BrainWaves = BrainWaves;
   eegDataActive: number[][][] = []    //1: Bandwith, 2: electrode, 3: Hz -> value
   eegDataRest: number[][][] = []
-
   chartTitleActive: string = 'Active';
   chartTitleRest: string = 'Rest';
+  chartElectrodeArray: BWElectrodeArray = new BWElectrodeArray;
+
   subtitleEEG = '';
   chartDataActive: number[][] = []
   chartDataRest: number[][] = []
@@ -58,10 +60,18 @@ export class DashboardComponent implements OnInit {
   }
 
 
+  // get custom chip colors for electrode chip
+  getChipStyles(color: string) {
+    return {
+      'background-color': color,
+      'color': '#ffffff' // Replace with the desired text color for custom chips
+    };
+  }
+
   // TOGGLE ELECTRODES WAVES IN CHART
 
-  toggleElectrode(){
-    console.log("hi")
+  toggleElectrode(elName: string){
+    this.chartElectrodeArray.toggleElectrodeVisibility(elName);
   }
 
 }

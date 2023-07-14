@@ -1,5 +1,7 @@
 import { Component, OnInit, ViewChild, OnChanges, ElementRef, Input, SimpleChanges } from '@angular/core';
 import { Chart } from 'chart.js/auto';
+import { BWElectrodeArray } from './utils/bwelectrode-array';
+import { Electrode } from './utils/electrode.model';
 
 @Component({
   selector: 'app-bwchart',
@@ -11,6 +13,7 @@ export class BwchartComponent implements OnInit, OnChanges{
   @ViewChild('chartCanvas', { static: true }) chartCanvas!: ElementRef;
   @Input() chartTitle?: string;
   @Input() chartData: number[][] = [];
+  @Input() chartElectrodeArray: BWElectrodeArray = new BWElectrodeArray;
 
   public brainWavesChart?: Chart;
 
@@ -20,7 +23,7 @@ export class BwchartComponent implements OnInit, OnChanges{
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['chartData']) {
-      this.updateChart();
+      this.updateChartData();
     }
   }
 
@@ -158,13 +161,17 @@ export class BwchartComponent implements OnInit, OnChanges{
     })
   }
 
-  updateChart(){
+  updateChartData(){
     if( !(this.brainWavesChart == null) ){
-      for(let i=0; i<14; i++){
+      for(let i=0; i< this.brainWavesChart!.data.datasets.length; i++){
         this.brainWavesChart!.data.datasets[i].data = this.chartData[i];
       }
       this.brainWavesChart?.update();
     }
+  }
+
+  updateChartLinesVisibility(){
+    this.brainWavesChart?.update();
   }
 
 }

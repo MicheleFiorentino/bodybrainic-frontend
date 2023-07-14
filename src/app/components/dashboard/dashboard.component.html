@@ -10,10 +10,10 @@
         <mat-card-content>
           <div class="column outerright">
             <div class="column innerleft">
-                <app-bwchart [chartTitle]="chartTitleActive" [chartData]="chartDataActive"></app-bwchart><br>
+                <app-bwchart [chartTitle]="chartTitleActive" [chartData]="chartDataActive" [chartElectrodeArray]="chartElectrodeArray"></app-bwchart><br>
             </div>
             <div class="column innerright">
-                <app-bwchart [chartTitle]="chartTitleRest" [chartData]="chartDataRest"></app-bwchart>
+                <app-bwchart [chartTitle]="chartTitleRest" [chartData]="chartDataRest" [chartElectrodeArray]="chartElectrodeArray"></app-bwchart>
             </div>
           </div>
         </mat-card-content>
@@ -25,9 +25,11 @@
           <button mat-stroked-button color="primary" (click)="onUpdateEEG(BrainWaves.GAMMA)">GAMMA</button>
         </mat-card-actions>
         <mat-card-actions>
-          <mat-chip-listbox aria-label="Electrode selection">
-            <mat-chip-option (click)="toggleElectrode()">F3</mat-chip-option>
-            <mat-chip-option>FC5</mat-chip-option>
+          <mat-chip-listbox multiple aria-label="Electrode selection">
+            <mat-chip-option selected="true" [ngStyle]="getChipStyles(el.color)"
+            *ngFor="let el of chartElectrodeArray.data" color="primary" (click)="toggleElectrode(el.name)">
+              {{el.name}}
+            </mat-chip-option>
           </mat-chip-listbox>
         </mat-card-actions>
     </mat-card>
