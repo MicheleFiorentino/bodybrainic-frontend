@@ -17,12 +17,14 @@
             </div>
           </div>
         </mat-card-content>
-        <mat-card-actions>
-          <button mat-stroked-button color="primary" (click)="onUpdateEEG(BrainWaves.DELTA)">DELTA</button>
-          <button mat-stroked-button color="primary" (click)="onUpdateEEG(BrainWaves.THETA)">THETA</button>
-          <button mat-stroked-button color="primary" (click)="onUpdateEEG(BrainWaves.ALPHA)">ALPHA</button>
-          <button mat-stroked-button color="primary" (click)="onUpdateEEG(BrainWaves.BETA)">BETA</button>
-          <button mat-stroked-button color="primary" (click)="onUpdateEEG(BrainWaves.GAMMA)">GAMMA</button>
+        <mat-card-actions class="mat-card-actions">
+          <button mat-raised-button class="mat-left-buttons" style="color:white; background-color: #797979" (click)="onUpdateEEG(BrainWaves.DELTA)">DELTA</button>
+          <button mat-stroked-button class="mat-left-buttons" style="color:white; background-color: #797979" (click)="onUpdateEEG(BrainWaves.THETA)">THETA</button>
+          <button mat-stroked-button class="mat-left-buttons" style="color:white; background-color: #797979" (click)="onUpdateEEG(BrainWaves.ALPHA)">ALPHA</button>
+          <button mat-stroked-button class="mat-left-buttons" style="color:white; background-color: #797979" (click)="onUpdateEEG(BrainWaves.BETA)">BETA</button>
+          <button mat-stroked-button class="mat-left-buttons" style="color:white; background-color: #797979" (click)="onUpdateEEG(BrainWaves.GAMMA)">GAMMA</button>
+          <div class="mat-spacer"></div> <!-- Add a spacer to push the button to the right -->
+          <button mat-raised-button class="mat-left-buttons" style="color:white; background-color: #15af89" (click)="navigateToBWDetails()">DETAILS</button>
         </mat-card-actions>
         <mat-card-actions>
           <mat-chip-listbox multiple aria-label="Electrode selection">

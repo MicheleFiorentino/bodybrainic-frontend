@@ -32,3 +32,30 @@
   .matchart{
     margin: 10px;
   }
+
+  /* BUTTONS */
+
+  .mat-card-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-left: 5%;
+    margin-right: 16%;
+  }
+
+  .mat-spacer {
+    flex-grow: 1; /* Allow the spacer to grow and push the last button to the right */
+  }
+
+  .mat-left-buttons {
+    margin: 2px;
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+
+  .mat-right-buttons {
+    margin: 2px;
+    font-size: 16px;
+    padding: 12px 24px;
+  }
+
+

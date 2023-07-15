@@ -18,6 +18,7 @@ export class BwchartComponent implements OnInit, OnChanges{
   public brainWavesChart?: Chart;
 
   ngOnInit(): void {
+
     this.renderBWChart();
   }
 
@@ -30,97 +31,25 @@ export class BwchartComponent implements OnInit, OnChanges{
   renderBWChart(){
     const xValues = Array.from({ length: 1024 }, (_, i) => i + 1); // Generate an array of integers from 1 to 1024
 
+    const myDatasets = [];
+    for (let i = 0; i < this.chartElectrodeArray.data.length; i++) {
+      const datasets = {
+        label: this.chartElectrodeArray.data[i].name,
+        color: this.chartElectrodeArray.data[i].color,
+        data: this.chartData[i],
+        hidden: !this.chartElectrodeArray.data[i].isVisible,
+        borderWidth: 0.5,
+        pointRadius: 0
+      };
+
+      myDatasets.push(datasets);
+    }
 
     this.brainWavesChart = new Chart(this.chartCanvas.nativeElement, {
       type: 'line',
       data: {
         labels: xValues,
-        datasets: [
-          {
-            label: 'F3',
-            data: this.chartData[0],
-            borderWidth: 0.5,
-            pointRadius: 0
-          },
-          {
-            label: 'FC5',
-            data: this.chartData[1],
-            borderWidth: 0.5,
-            pointRadius: 0
-          },
-          {
-            label: 'AF3',
-            data: this.chartData[2],
-            borderWidth: 0.5,
-            pointRadius: 0
-          },
-          {
-            label: 'F7',
-            data: this.chartData[3],
-            borderWidth: 0.5,
-            pointRadius: 0
-          },
-          {
-            label: 'T7',
-            data: this.chartData[4],
-            borderWidth: 0.5,
-            pointRadius: 0
-          },
-          {
-            label: 'P7',
-            data: this.chartData[5],
-            borderWidth: 0.5,
-            pointRadius: 0
-          },
-          {
-            label: 'O1',
-            data: this.chartData[6],
-            borderWidth: 0.5,
-            pointRadius: 0
-          },
-          {
-            label: 'O2',
-            data: this.chartData[7],
-            borderWidth: 0.5,
-            pointRadius: 0
-          },
-          {
-            label: 'P8',
-            data: this.chartData[8],
-            borderWidth: 0.5,
-            pointRadius: 0
-          },
-          {
-            label: 'T8',
-            data: this.chartData[9],
-            borderWidth: 0.5,
-            pointRadius: 0
-          },
-          {
-            label: 'F8',
-            data: this.chartData[10],
-            borderWidth: 0.5,
-            pointRadius: 0
-          },
-          {
-            label: 'AF4',
-            data: this.chartData[11],
-            borderWidth: 0.5,
-            pointRadius: 0
-          },
-          {
-            label: 'FC6',
-            data: this.chartData[12],
-            borderWidth: 0.5,
-            pointRadius: 0
-          },
-          {
-            label: 'F4',
-            data: this.chartData[13],
-            borderWidth: 0.5,
-            pointRadius: 0
-          }
-        ]
+        datasets: myDatasets
       },
       options: {
         responsive: false,

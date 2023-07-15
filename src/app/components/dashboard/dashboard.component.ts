@@ -3,6 +3,7 @@ import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
 import { BrainWaves } from '../widgets/bwchart/utils/brainwaves.enum';
 import { extractActiveEEGData, extractRestEEGData } from '../widgets/bwchart/utils/bwchart.helper';
 import { BWElectrodeArray } from '../widgets/bwchart/utils/bwelectrode-array';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -22,7 +23,8 @@ export class DashboardComponent implements OnInit {
   chartDataRest: number[][] = []
 
   constructor(
-    private dbService: DashboardService
+    private dbService: DashboardService,
+    private router: Router
   ){}
 
   ngOnInit(): void {
@@ -72,6 +74,13 @@ export class DashboardComponent implements OnInit {
 
   toggleElectrode(elName: string){
     this.chartElectrodeArray.toggleElectrodeVisibility(elName);
+  }
+
+
+  // ROUTING
+
+  navigateToBWDetails(){
+    this.router.navigate(['/patient-brainwaves-details'])
   }
 
 }

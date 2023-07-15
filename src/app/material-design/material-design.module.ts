@@ -5,6 +5,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatChipsModule} from '@angular/material/chips';
+import {MatIconModule} from '@angular/material/icon';
 
 
 
@@ -18,7 +19,8 @@ import {MatChipsModule} from '@angular/material/chips';
     MatToolbarModule,
     MatCardModule,
     MatButtonModule,
-    MatChipsModule
+    MatChipsModule,
+    MatIconModule
   ]
 })
 export class MaterialDesignModule { }
