@@ -1,12 +1,12 @@
 export class Electrode {
   name: string;
   color: string;
-  isVisible: boolean;
+  isHidden: boolean;
 
-  constructor(name: string, color: string, isVisible: boolean) {
+  constructor(name: string, color: string, isHidden: boolean) {
     this.name = name;
     this.color = color;
-    this.isVisible = isVisible;
+    this.isHidden = isHidden;
   }
 
 }

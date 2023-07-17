@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { DashboardService } from 'src/app/services/dashboard/dashboard.service';
 import { BrainWaves } from '../widgets/bwchart/utils/brainwaves.enum';
 import { extractActiveEEGData, extractRestEEGData } from '../widgets/bwchart/utils/bwchart.helper';
 import { BWElectrodeArray } from '../widgets/bwchart/utils/bwelectrode-array';
+import { BwchartComponent } from '../widgets/bwchart/bwchart.component';
 
 @Component({
   selector: 'app-bwdetails',
@@ -10,6 +11,8 @@ import { BWElectrodeArray } from '../widgets/bwchart/utils/bwelectrode-array';
   styleUrls: ['./bwdetails.component.css']
 })
 export class BwdetailsComponent implements OnInit{
+  @ViewChild('bwChart', { static: true }) bwChart!: BwchartComponent;
+
   BrainWaves = BrainWaves;
   eegDataActive: number[][][] = []    //1: Bandwith, 2: electrode, 3: Hz -> value
   eegDataRest: number[][][] = []
@@ -56,6 +59,22 @@ export class BwdetailsComponent implements OnInit{
 
   updateEEGSubtitle(bwtype: BrainWaves){
     this.subtitleEEG = BrainWaves[bwtype].concat(' waves');
+  }
+
+
+  // get custom chip colors for electrode chip
+  getChipStyles(color: string) {
+    return {
+      'background-color': color,
+      'color': '#ffffff' // Replace with the desired text color for custom chips
+    };
+  }
+
+  // TOGGLE ELECTRODES WAVES IN CHART
+
+  toggleElectrode(elName: string){
+    this.chartElectrodeArray.toggleElectrodeVisibility(elName);
+    this.bwChart.updateChartVisibility(this.chartElectrodeArray);
   }
 
 }

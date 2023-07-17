@@ -26,13 +26,5 @@
           <div class="mat-spacer"></div> <!-- Add a spacer to push the button to the right -->
           <button mat-raised-button class="mat-left-buttons" style="color:white; background-color: #15af89" (click)="navigateToBWDetails()">DETAILS</button>
         </mat-card-actions>
-        <mat-card-actions>
-          <mat-chip-listbox multiple aria-label="Electrode selection">
-            <mat-chip-option selected="true" [ngStyle]="getChipStyles(el.color)"
-            *ngFor="let el of chartElectrodeArray.data" color="primary" (click)="toggleElectrode(el.name)">
-              {{el.name}}
-            </mat-chip-option>
-          </mat-chip-listbox>
-        </mat-card-actions>
     </mat-card>
 </div>

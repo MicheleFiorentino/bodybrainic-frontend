@@ -62,21 +62,6 @@ export class DashboardComponent implements OnInit {
   }
 
 
-  // get custom chip colors for electrode chip
-  getChipStyles(color: string) {
-    return {
-      'background-color': color,
-      'color': '#ffffff' // Replace with the desired text color for custom chips
-    };
-  }
-
-  // TOGGLE ELECTRODES WAVES IN CHART
-
-  toggleElectrode(elName: string){
-    this.chartElectrodeArray.toggleElectrodeVisibility(elName);
-  }
-
-
   // ROUTING
 
   navigateToBWDetails(){

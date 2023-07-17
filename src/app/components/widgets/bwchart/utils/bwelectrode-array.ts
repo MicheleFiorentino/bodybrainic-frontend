@@ -22,20 +22,20 @@ export class BWElectrodeArray {
 
   constructor(){
     this.data = [
-      new Electrode('F3', Color.Red, true),
-      new Electrode('FC5', Color.Green, true),
-      new Electrode('AF3', Color.Blue, true),
-      new Electrode('F7', Color.Yellow, true),
-      new Electrode('T7', Color.Magenta, true),
-      new Electrode('P7', Color.Cyan, true),
-      new Electrode('O1', Color.Orange, true),
-      new Electrode('O2', Color.SkyBlue, true),
-      new Electrode('P8', Color.Purple, true),
-      new Electrode('T8', Color.Lime, true),
-      new Electrode('F8', Color.Pink, true),
-      new Electrode('AF4', Color.Turquoise, true),
-      new Electrode('FC6', Color.Indigo, true),
-      new Electrode('F4', Color.Azure, true)
+      new Electrode('F3', Color.Red, false),
+      new Electrode('FC5', Color.Green, false),
+      new Electrode('AF3', Color.Blue, false),
+      new Electrode('F7', Color.Yellow, false),
+      new Electrode('T7', Color.Magenta, false),
+      new Electrode('P7', Color.Cyan, false),
+      new Electrode('O1', Color.Orange, false),
+      new Electrode('O2', Color.SkyBlue, false),
+      new Electrode('P8', Color.Purple, false),
+      new Electrode('T8', Color.Lime, false),
+      new Electrode('F8', Color.Pink, false),
+      new Electrode('AF4', Color.Turquoise, false),
+      new Electrode('FC6', Color.Indigo, false),
+      new Electrode('F4', Color.Azure, false)
     ];
   }
 
@@ -44,7 +44,7 @@ export class BWElectrodeArray {
     if(index < 0){
       return false;
     }
-    this.data[index].isVisible = !this.data[index].isVisible;
+    this.data[index].isHidden = !this.data[index].isHidden;
     return true;
   }
 

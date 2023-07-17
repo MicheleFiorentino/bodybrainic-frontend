@@ -5,7 +5,25 @@
       <mat-card-subtitle>sub</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
-      <app-bwchart [chartTitle]="chartTitleActive" [chartData]="chartDataActive" [chartElectrodeArray]="chartElectrodeArray"></app-bwchart>
+      <app-bwchart #bwChart [chartTitle]="chartTitleActive" [chartData]="chartDataActive" [chartElectrodeArray]="chartElectrodeArray"></app-bwchart>
     </mat-card-content>
+    <mat-card-actions class="mat-card-actions">
+      <button mat-raised-button class="mat-left-buttons" style="color:white; background-color: #797979" (click)="onUpdateEEG(BrainWaves.DELTA)">DELTA</button>
+      <button mat-stroked-button class="mat-left-buttons" style="color:white; background-color: #797979" (click)="onUpdateEEG(BrainWaves.THETA)">THETA</button>
+      <button mat-stroked-button class="mat-left-buttons" style="color:white; background-color: #797979" (click)="onUpdateEEG(BrainWaves.ALPHA)">ALPHA</button>
+      <button mat-stroked-button class="mat-left-buttons" style="color:white; background-color: #797979" (click)="onUpdateEEG(BrainWaves.BETA)">BETA</button>
+      <button mat-stroked-button class="mat-left-buttons" style="color:white; background-color: #797979" (click)="onUpdateEEG(BrainWaves.GAMMA)">GAMMA</button>
+      <div class="mat-spacer"></div> <!-- Add a spacer to push the button to the right -->
+      <button mat-raised-button class="mat-left-buttons" style="color:white; background-color: #15af89">TOGGLE VIEW</button>
+      <button mat-raised-button class="mat-left-buttons" style="color:white; background-color: #15af89">HISTORY</button>
+    </mat-card-actions>
+    <mat-card-actions>
+      <mat-chip-listbox multiple aria-label="Electrode selection">
+        <mat-chip-option selected="true" [ngStyle]="getChipStyles(el.color)"
+        *ngFor="let el of chartElectrodeArray.data" color="primary" (click)="toggleElectrode(el.name)">
+          {{el.name}}
+        </mat-chip-option>
+      </mat-chip-listbox>
+    </mat-card-actions>
   </mat-card>
 </div>

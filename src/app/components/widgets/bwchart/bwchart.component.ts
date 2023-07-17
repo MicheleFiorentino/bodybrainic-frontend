@@ -35,9 +35,10 @@ export class BwchartComponent implements OnInit, OnChanges{
     for (let i = 0; i < this.chartElectrodeArray.data.length; i++) {
       const datasets = {
         label: this.chartElectrodeArray.data[i].name,
-        color: this.chartElectrodeArray.data[i].color,
+        backgroundColor: this.chartElectrodeArray.data[i].color,
+        borderColor: this.chartElectrodeArray.data[i].color,
         data: this.chartData[i],
-        hidden: !this.chartElectrodeArray.data[i].isVisible,
+        hidden: this.chartElectrodeArray.data[i].isHidden,
         borderWidth: 0.5,
         pointRadius: 0
       };
@@ -99,8 +100,14 @@ export class BwchartComponent implements OnInit, OnChanges{
     }
   }
 
-  updateChartLinesVisibility(){
-    this.brainWavesChart?.update();
+  @Input()
+  public updateChartVisibility(bweaUpdated: BWElectrodeArray){
+    if( !(this.brainWavesChart == null) ){
+      for(let i=0; i< this.brainWavesChart!.data.datasets.length; i++){
+        this.brainWavesChart!.data.datasets[i].hidden = bweaUpdated.data[i].isHidden
+      }
+      this.brainWavesChart?.update();
+    }
   }
 
 }
