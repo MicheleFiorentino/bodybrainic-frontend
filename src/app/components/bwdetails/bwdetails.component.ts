@@ -5,6 +5,11 @@ import { extractActiveEEGData, extractRestEEGData } from '../widgets/bwchart/uti
 import { BWElectrodeArray } from '../widgets/bwchart/utils/bwelectrode-array';
 import { BwchartComponent } from '../widgets/bwchart/bwchart.component';
 
+enum ViewType{
+  Active,
+  Rest
+}
+
 @Component({
   selector: 'app-bwdetails',
   templateUrl: './bwdetails.component.html',
@@ -16,13 +21,14 @@ export class BwdetailsComponent implements OnInit{
   BrainWaves = BrainWaves;
   eegDataActive: number[][][] = []    //1: Bandwith, 2: electrode, 3: Hz -> value
   eegDataRest: number[][][] = []
-  chartTitleActive: string = 'Active';
-  chartTitleRest: string = 'Rest';
+  chartTitle: string = 'Active';
   chartElectrodeArray: BWElectrodeArray = new BWElectrodeArray;
 
   subtitleEEG = '';
-  chartDataActive: number[][] = []
-  chartDataRest: number[][] = []
+  chartData: number[][] = []
+  selectedView = ViewType.Active;
+  selectedBwtype = BrainWaves.DELTA;
+  selectedMeasurement: string = 'most recent';
 
   constructor(
     private dbService: DashboardService
@@ -39,21 +45,26 @@ export class BwdetailsComponent implements OnInit{
     this.dbService.getEEGRawDataFile()
     .subscribe(file => {
       this.eegDataActive = extractActiveEEGData(file);
-      this.onUpdateEEG(BrainWaves.DELTA);
+      this.eegDataRest = extractRestEEGData(file);
+      this.onUpdateEEG(this.selectedBwtype, this.selectedView);
     });
   }
 
 
   // BUTTON UPDATING CHARTS
 
-  onUpdateEEG(bwtype: BrainWaves){
-    this.updateEEGDataChart(bwtype);
+  onUpdateEEG(bwtype: BrainWaves, view: ViewType){
+    this.updateEEGDataChart(bwtype, view);
     this.updateEEGSubtitle(bwtype);
   }
 
-  updateEEGDataChart(bwtype: BrainWaves){
-    this.chartDataActive = this.eegDataActive[bwtype];
-    this.chartDataRest = this.eegDataRest[bwtype];
+  updateEEGDataChart(bwtype: BrainWaves, view: ViewType){
+    if(view == ViewType.Active){
+      this.chartData = this.eegDataActive[bwtype];
+    } else {
+      this.chartData = this.eegDataRest[bwtype];
+    }
+    this.selectedBwtype = bwtype;
   }
 
 
@@ -75,6 +86,21 @@ export class BwdetailsComponent implements OnInit{
   toggleElectrode(elName: string){
     this.chartElectrodeArray.toggleElectrodeVisibility(elName);
     this.bwChart.updateChartVisibility(this.chartElectrodeArray);
+  }
+
+  // TOGGLE VIEW CHAR (ACTIVE, REST)
+
+  toggleView(){
+    if(this.selectedView == ViewType.Active){
+      this.selectedView = ViewType.Rest;
+      this.chartTitle = 'Rest';
+    } else {
+      this.selectedView = ViewType.Active;
+      this.chartTitle = 'Active';
+    }
+
+    this.updateEEGDataChart(this.selectedBwtype, this.selectedView);
+    this.bwChart.updateChartTitle(this.chartTitle)
   }
 
 }

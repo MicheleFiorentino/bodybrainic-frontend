@@ -110,4 +110,16 @@ export class BwchartComponent implements OnInit, OnChanges{
     }
   }
 
+  @Input()
+  public updateChartTitle(title: string) {
+    if (this.brainWavesChart
+      && this.brainWavesChart.options
+      && this.brainWavesChart.options.plugins
+      && this.brainWavesChart.options.plugins.title) {
+
+      this.brainWavesChart.options.plugins.title.text = title;
+    }
+  }
+
+
 }
