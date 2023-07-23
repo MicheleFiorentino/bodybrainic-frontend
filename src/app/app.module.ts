@@ -11,6 +11,7 @@ import { LoginComponent } from './components/auth/login/login.component';
 import { BwchartComponent } from './components/widgets/bwchart/bwchart.component';
 import { ProfileComponent } from './components/widgets/profile/profile.component';
 import { BwdetailsComponent } from './components/bwdetails/bwdetails.component';
+import { DoctorInfoComponent } from './components/doctor-info/doctor-info.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { BwdetailsComponent } from './components/bwdetails/bwdetails.component';
     LoginComponent,
     BwchartComponent,
     ProfileComponent,
-    BwdetailsComponent
+    BwdetailsComponent,
+    DoctorInfoComponent
   ],
   imports: [
     BrowserModule,

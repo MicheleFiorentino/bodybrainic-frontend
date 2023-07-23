@@ -3,12 +3,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/auth/login/login.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { BwdetailsComponent } from './components/bwdetails/bwdetails.component';
+import { DoctorInfoComponent } from './components/doctor-info/doctor-info.component';
 
 const routes: Routes = [
   {path: '', redirectTo: 'login', pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'dashboard', component: DashboardComponent},
-  {path: 'patient-brainwaves-details', component: BwdetailsComponent}
+  {path: 'patient-brainwaves-details', component: BwdetailsComponent},
+  {path: 'doctor-info', component: DoctorInfoComponent}
 ];
 
 @NgModule({
