@@ -12,6 +12,7 @@ import { BwchartComponent } from './components/widgets/bwchart/bwchart.component
 import { ProfileComponent } from './components/widgets/profile/profile.component';
 import { BwdetailsComponent } from './components/bwdetails/bwdetails.component';
 import { DoctorInfoComponent } from './components/doctor-info/doctor-info.component';
+import { PatientListComponent } from './components/patient-list/patient-list.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { DoctorInfoComponent } from './components/doctor-info/doctor-info.compon
     BwchartComponent,
     ProfileComponent,
     BwdetailsComponent,
-    DoctorInfoComponent
+    DoctorInfoComponent,
+    PatientListComponent
   ],
   imports: [
     BrowserModule,

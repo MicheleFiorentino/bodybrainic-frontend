@@ -5,10 +5,10 @@
         Doctor
       </mat-card-title>
       <mat-card-subtitle>
-        Specialization
+        {{doctor?.specialization}}
       </mat-card-subtitle>
     </mat-card-header>
-    <img class="profile-avatar" mat-card-avatar src="https://www.omgtb.com/wp-content/uploads/2021/04/620_NC4xNjE-1-scaled.jpg" alt="Profile">
+    <img class="profile-avatar" mat-card-avatar [src]="avatar" alt="Profile">
     <mat-card-content>
       <div class="doctor-info">
         <div class="doctor-fields">
@@ -21,13 +21,13 @@
           <p>PHONE NUMBER:</p>
         </div>
         <div class="doctor-values">
-          <p>GASTANI</p>
-          <p>GASTANIIIII</p>
-          <p>GANI</p>
-          <p>GASTANI</p>
-          <p>GASTANI</p>
-          <p>GASTANI</p>
-          <p>GASTANI</p>
+          <p>{{doctor?.fiscalCode}}</p>
+          <p>{{doctor?.name}}</p>
+          <p>{{doctor?.surname}}</p>
+          <p>{{doctor?.dateOfBirth}}</p>
+          <p>{{doctor?.sex}}</p>
+          <p>{{doctor?.email}}</p>
+          <p>{{doctor?.phoneNumber}}</p>
         </div>
       </div>
       <mat-divider></mat-divider>

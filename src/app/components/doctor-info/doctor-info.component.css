@@ -1,12 +1,12 @@
 .wrapper{
   margin: 20px auto;
-  width: 30%;
+  width: 40%;
   display: flex;
   flex-flow: column;
 }
 
 .profile-avatar {
-  width: 60%;
+  width: 50%;
   height: auto;
   align-self: center;
 }

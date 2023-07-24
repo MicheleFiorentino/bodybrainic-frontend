@@ -13,6 +13,7 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatInputModule} from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { FormsModule } from '@angular/forms';
+import {MatTableModule} from '@angular/material/table';
 
 @NgModule({
   declarations: [],
@@ -32,7 +33,8 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatGridListModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    MatTableModule
   ]
 })
 export class MaterialDesignModule { }
