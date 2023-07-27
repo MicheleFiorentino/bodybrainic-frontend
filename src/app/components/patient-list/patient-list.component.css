@@ -1,0 +1,9 @@
+.mat-mdc-header-cell,
+.mat-mdc-cell {
+  justify-content: center;
+  padding: 8px 8px 8px 0px;
+};
+
+.mat-mdc-header-cell {
+  font-weight: bold;
+}
